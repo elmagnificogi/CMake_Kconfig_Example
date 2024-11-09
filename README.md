@@ -1,8 +1,10 @@
 # apm32-kconfig-example
 
-[![Version](https://img.shields.io/github/v/release/LuckkMaker/apm32-cmake-example)](https://github.com/LuckkMaker/apm32-cmake-example/releases/latest)
+[![Version](https://img.shields.io/github/v/release/LuckkMaker/apm32-kconfig-example)](https://github.com/LuckkMaker/apm32-kconfig-example/releases/latest)
 
 The apm32-kconfig-example is an example project that demonstrates how to use the Kconfig configuration system to configure the project. The project is based on the APM32 Device Abstraction Layer (DAL) and CMSIS driver.
+
+![menuconfig](./doc/figures/menuconfig.png)
 
 ## Features
 
