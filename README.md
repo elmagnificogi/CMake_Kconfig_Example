@@ -1,11 +1,12 @@
-# apm32-cmake-example
+# apm32-kconfig-example
 
-[![Version](https://img.shields.io/github/v/release/MorroGeek/apm32-cmake-example)](https://github.com/MorroGeek/apm32-cmake-example/releases/latest)
+[![Version](https://img.shields.io/github/v/release/LuckkMaker/apm32-cmake-example)](https://github.com/LuckkMaker/apm32-cmake-example/releases/latest)
 
-The apm32-cmake-example is a template project for developing firmware for the APM32 microcontroller using CMake build system. The project uses the APM32 Device Abstraction Layer and the APM32 CMSIS driver for peripheral access. The project also includes the APM32 SVD files for peripheral register definitions.
+The apm32-kconfig-example is an example project that demonstrates how to use the Kconfig configuration system to configure the project. The project is based on the APM32 Device Abstraction Layer (DAL) and CMSIS driver.
 
 ## Features
 
+- Kconfig configuration
 - CMake build system
 - CMake Presets
 - CMake custom command
@@ -17,10 +18,11 @@ The apm32-cmake-example is a template project for developing firmware for the AP
 
 | Directory                                     | Content                                                      |
 | :-------------------------------------------- | :----------------------------------------------------------- |
-| [apm32-cmake-example/.vscode](./.vscode)      | Contains JLink launch configuration for debugging            |
-| [apm32-cmake-example/cmake](./cmake)          | Contains CMake scripts for building the project              |
-| [apm32-cmake-example/driver](./driver)        | Contains APM32 DAL driver and CMSIS driver                   |
-| [apm32-cmake-example/svd](./svd)              | Contains APM32 SVD files                                     |
+| [apm32-kconfig-example/.vscode](./.vscode)    | Contains JLink launch configuration for debugging            |
+| [apm32-kconfig-example/cmake](./cmake)        | Contains CMake scripts for building the project              |
+| [apm32-kconfig-example/driver](./driver)      | Contains APM32 DAL driver and CMSIS driver                   |
+| [apm32-kconfig-example/svd](./svd)            | Contains APM32 SVD files                                     |
+| [apm32-kconfig-example/tools](./tools)        | Utility scripts for the project                              |
 
 ## Supported Platforms
 
@@ -32,6 +34,8 @@ The apm32-cmake-example is a template project for developing firmware for the AP
 
 - [CMake](https://cmake.org/)
 - [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
+- Kconfiglib
+- [python3](https://www.python.org/)
 
 ## Recommended Tools
 
@@ -57,6 +61,22 @@ Using CMake Presets to initialize the project. The following command will create
 
 ```bash
 cmake -S . -B build/Debug --preset Debug
+```
+
+### Configure the project
+
+You can configure the project using the menuconfig command.
+
+```bash
+menuconfig
+```
+
+### Generate the header file
+
+You can generate the header file using the following CMake custom target.
+
+```bash
+python tools/python/kconfig.py Kconfig .config autoconf.h kconfigLog.txt .config
 ```
 
 ### Make the project
@@ -86,7 +106,7 @@ Using the JLink launch configuration in the .vscode directory to debug the proje
         {
             "name": "Cortex Debug with J-Link",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/Debug/test-firmware.elf", // Change the executable path
+            "executable": "./build/Debug/apm32-firmware.elf", // Change the executable path
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
