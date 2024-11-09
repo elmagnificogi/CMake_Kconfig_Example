@@ -1,0 +1,8 @@
+{
+    "cmake.generator": "CodeBlocks - MinGW Makefiles",
+    "cmake.clearOutputBeforeBuild": false,
+    "cmake.buildTask": true,
+    "cmake.environment": {
+        "CLICOLOR_FORCE": "1"
+    },
+}

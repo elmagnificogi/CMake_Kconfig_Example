@@ -1,0 +1,38 @@
+mainmenu "APM32 Project Configuration"
+
+config PROJECT_NAME
+    string
+    prompt "Project Name"
+    default "apm32-project"
+    help
+      "The name of the project. This will be used to name the output files."
+
+config PROJECT_VERSION
+    string
+    prompt "Project Version"
+    default "0.0.1"
+    help
+      "The version of the project."
+
+choice
+    prompt "LED Toggle"
+    default LED1_TOGGLE
+
+config LED1_TOGGLE
+    bool "LED1"
+    help
+      "Enable LED toggle functionality."
+
+config LED2_TOGGLE
+    bool "LED2"
+    help
+      "Enable LED toggle functionality."
+
+endchoice
+
+config LED_TOGGLE_INTERVAL
+    int
+    prompt "LED Toggle Interval"
+    default 500
+    help
+      "The interval at which LED will toggle."
