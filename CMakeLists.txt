@@ -102,3 +102,21 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 target_link_libraries(${CMAKE_PROJECT_NAME}
     # Add user defined libraries
 )
+
+add_custom_target(project-debug-make
+    COMMAND ${CMAKE_COMMAND} --preset Debug -DCMAKE_BUILD_TYPE=Debug
+    COMMENT "Reconfiguring CMake project with Debug build type"
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)
+
+add_custom_target(project-debug-clean
+    COMMAND ${CMAKE_COMMAND} --build --preset Debug --target clean
+    COMMENT "Cleaning up build directory"
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)
+
+add_custom_target(project-debug-build
+    COMMAND ${CMAKE_COMMAND} --build --preset Debug --config Debug --target all -- -j6
+    COMMENT "Reconfiguring and building project with MinGW in Debug mode"
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)
