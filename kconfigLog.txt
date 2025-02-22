@@ -1,0 +1,5 @@
+I:\kconfig\apm32-kconfig-example\Kconfig
+I:\kconfig\apm32-kconfig-example\driver\Kconfig
+I:\kconfig\apm32-kconfig-example\module\Kconfig
+I:\kconfig\apm32-kconfig-example\platform\Kconfig
+I:\kconfig\apm32-kconfig-example\rtos\Kconfig

@@ -1,0 +1,14 @@
+menu "Platform Configuration"
+
+    choice
+        prompt "Platform Selection"
+        default APM32F405
+
+        config APM32F405
+            bool "APM32F405"
+
+        config STM32F103
+            bool "STM32F103"
+
+    endchoice
+endmenu

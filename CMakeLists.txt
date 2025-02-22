@@ -21,12 +21,11 @@ set(CMAKE_PROJECT_NAME              apm32-firmware)
 # Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")
 
-# Enable CMake support for ASM and C languages
-enable_language(C ASM)
-
 project(${CMAKE_PROJECT_NAME})
 message("Build type: " ${CMAKE_BUILD_TYPE})
-set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/apm32f405xg_flash.ld)
+
+# Enable CMake support for ASM and C languages
+enable_language(C ASM CXX)
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME})
@@ -55,6 +54,25 @@ else ()
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Og -g")
 endif ()
 
+
+# Add sources and includes
+file(READ "autoconf.h" config_content)
+#message(STATUS "Found config macro: ${config_content}")
+string(REGEX MATCHALL "CONFIG_[A-Z0-9_]+" config_macros ${config_content})
+
+foreach(macro ${config_macros})
+    #message(STATUS "Found config macro: ${macro}")
+    set(${macro} ${macro})
+    #target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE ${macro})
+endforeach()
+
+# Add sources and includes
+include("platform/platform.cmake")
+include("driver/driver.cmake")
+include("rtos/rtos.cmake")
+include("module/module.cmake")
+include("cmake/source-include.cmake")
+
 set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -x assembler-with-cpp -MMD -MP")
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fno-rtti -fno-exceptions -fno-threadsafe-statics")
 
@@ -70,9 +88,6 @@ set(CMAKE_CXX_LINK_FLAGS "${CMAKE_C_LINK_FLAGS}")
 
 # Add libraries
 
-# Add APM32 DAL sources and includes
-include("cmake/apm32-dal.cmake")
-
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
@@ -81,13 +96,13 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-    ${APM32_DAL_CORE_SOURCES}
+    ${USER_SOURCES}
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
-    ${APM32_DAL_CORE_INCLUDES}
+    ${USER_INCLUDES}
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
@@ -95,7 +110,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     $<$<CONFIG:Debug>:DEBUG>
     # Add user defined symbols
-    ${APM32_DAL_CORE_DEFINES}
+    ${USER_DEFINES}
 )
 
 # Add linked libraries

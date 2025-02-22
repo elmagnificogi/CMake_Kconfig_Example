@@ -1,0 +1,7 @@
+menu "Driver Configuration"
+  config LED
+      bool "LED"
+
+  config Motor
+      bool "Motor"
+endmenu

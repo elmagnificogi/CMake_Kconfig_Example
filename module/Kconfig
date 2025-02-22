@@ -1,0 +1,7 @@
+menu "Module Configuration"
+  config Motors
+      bool "Motors"
+
+  config Flash
+      bool "Flash"
+endmenu

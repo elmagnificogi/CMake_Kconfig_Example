@@ -1,0 +1,13 @@
+mainmenu "RTOS Configuration"
+
+choice
+    prompt "RTOS Selection"
+    default FreeRTOS
+
+config FreeRTOS
+    bool "FreeRTOS"
+
+config uCOS
+    bool "uCOS"
+
+endchoice

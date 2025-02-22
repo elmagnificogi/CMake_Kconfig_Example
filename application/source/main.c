@@ -52,16 +52,11 @@
 int main(void)
 {
     /* Device configuration */
-    DAL_DeviceConfig();
+    //DAL_DeviceConfig();
 
     /* Infinite loop */
     while (1)
     {
-#if defined(CONFIG_LED1_TOGGLE)
-        DAL_GPIO_TogglePin(GPIOE, GPIO_PIN_5);
-#else
-        DAL_GPIO_TogglePin(GPIOE, GPIO_PIN_6);
-#endif /* CONFIG_LED1_TOGGLE */
-        DAL_Delay(CONFIG_LED_TOGGLE_INTERVAL);
+        ;
     }
 }
