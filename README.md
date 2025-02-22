@@ -1,42 +1,31 @@
-# apm32-kconfig-example
-
-[![Version](https://img.shields.io/github/v/release/LuckkMaker/apm32-kconfig-example)](https://github.com/LuckkMaker/apm32-kconfig-example/releases/latest)
-
-The apm32-kconfig-example is an example project that demonstrates how to use the Kconfig configuration system to configure the project. The project is based on the APM32 Device Abstraction Layer (DAL) and CMSIS driver.
-
-![menuconfig](./doc/figures/menuconfig.png)
-
-## Features
-
-- Kconfig configuration
-- CMake build system
-- CMake Presets
-- CMake custom command
-- APM32 Device Abstraction Layer
-- APM32 CMSIS driver
-- APM32 SVD files
+# CMake Kconfig Example
 
 ## Directory Structure
 
-| Directory                                     | Content                                                      |
-| :-------------------------------------------- | :----------------------------------------------------------- |
-| [apm32-kconfig-example/.vscode](./.vscode)    | Contains JLink launch configuration for debugging            |
-| [apm32-kconfig-example/cmake](./cmake)        | Contains CMake scripts for building the project              |
-| [apm32-kconfig-example/driver](./driver)      | Contains APM32 DAL driver and CMSIS driver                   |
-| [apm32-kconfig-example/svd](./svd)            | Contains APM32 SVD files                                     |
-| [apm32-kconfig-example/tools](./tools)        | Utility scripts for the project                              |
-
-## Supported Platforms
-
-| Platform      | Device                                                          |
-| :------------ | :-------------------------------------------------------------- |
-| APM32F4       | APM32F405xx, APM32F407xx, APM32F417xx, APM32F411xx, APM32F465xx |
+- `.config`: Generated configuration file.
+- `.config.old`: Previous configuration file.
+- `.gitignore`: Git ignore file.
+- `.vscode/`: VSCode configuration directory.
+- `application/`: Application source code.
+- `autoconf.h`: Generated header file with configuration macros.
+- `build/`: Build directory.
+- `cmake/`: CMake configuration files.
+- `CMakeLists.txt`: Top-level CMake configuration file.
+- `driver/`: Driver source code.
+- `kconfig.cmake`: CMake module for Kconfig.
+- `kconfig.h`: Header file for Kconfig.
+- `kconfigLog.txt`: Log file for Kconfig.
+- `module/`: Module source code.
+- `platform/`: Platform-specific source code.
+- `README.md`: This file.
+- `rtos/`: RTOS source code.
+- `tools/`: Tools for Kconfig.
 
 ## Dependencies
-
+- [MinGW64](https://github.com/niXman/mingw-builds-binaries/releases)
 - [CMake](https://cmake.org/)
 - [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
-- Kconfiglib
+- [Kconfiglib](https://github.com/ulfalizer/Kconfiglib)
 - [python3](https://www.python.org/)
 
 ## Recommended Tools
@@ -57,28 +46,16 @@ You can using the following commands to build the project. Also, you can use the
 git clone
 ```
 
-### Initialize CMake project
-
-Using CMake Presets to initialize the project. The following command will create a build directory and generate the build system files. The preset option is set to Debug. You can change the preset option to Release or any other preset defined in the CMakePresets.json file.
-
-```bash
-cmake -S . -B build/Debug --preset Debug
-```
-
-### Configure the project
-
-You can configure the project using the menuconfig command.
-
-```bash
-menuconfig
-```
-
 ### Generate the header file
+Config project
+```
+python -m guiconfig
+```
 
 You can generate the header file using the following CMake custom target.
 
 ```bash
-python tools/python/kconfig.py Kconfig .config autoconf.h kconfigLog.txt .config
+python tools/kconfig.py Kconfig .config autoconf.h kconfigLog.txt .config
 ```
 
 ### Make the project
@@ -119,3 +96,6 @@ Using the JLink launch configuration in the .vscode directory to debug the proje
     ]
 }
 ```
+
+### Ref
+> https://github.com/LuckkMaker/apm32-kconfig-example
