@@ -1,5 +1,11 @@
 CONFIG_PROJECT_NAME="Demo-project"
 CONFIG_PROJECT_VERSION="0.9.4"
+# CONFIG_KCONFIG_BOOL_ITEM1 is not set
+# CONFIG_KCONFIG_BOOL_ITEM2 is not set
+CONFIG_KCONFIG_TRISTATE_ITEM=y
+CONFIG_KCONFIG_STRING_ITEM=""
+CONFIG_KCONFIG_INT_ITEM=
+CONFIG_KCONFIG_HEX_ITEM=
 
 #
 # Platform Configuration
@@ -25,31 +31,8 @@ CONFIG_FreeRTOS=y
 # CONFIG_Flash is not set
 
 #
-# New Module2 Configuration
-#
-CONFIG_MODULES=y
-# CONFIG_NewModule2 is not set
-# CONFIG_Feature11 is not set
-# CONFIG_Feature22 is not set
-
-#
-# Sub Module Configuration
-#
-# CONFIG_Sub11_Fe1ature1 is not set
-# CONFIG_Sub11_Fe1ature2 is not set
-# end of Sub Module Configuration
-# end of New Module2 Configuration
-
-#
 # New Module Configuration
 #
 # CONFIG_NewModule is not set
-# CONFIG_Feature1 is not set
-# CONFIG_Feature2 is not set
-
-#
-# Sub Module Configuration
-#
-# end of Sub Module Configuration
 # end of New Module Configuration
 # end of Module Configuration

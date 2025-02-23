@@ -1,0 +1,22 @@
+menu "Sub Module2 Configuration"
+    config MODULES
+        prompt "Enable Modules"
+        def_bool y
+        option modules
+
+    config SubModule3
+        tristate "SubModule3"
+
+    choice
+        prompt "Feature222 selection"
+
+        config Sub2_Feature1
+            tristate "Sub_2Feature 122"
+            help
+                "This is the first feature"
+        config Sub2_Feature2
+            tristate "Sub_2Feature 222"
+            help
+                "This is the second feature"
+    endchoice
+endmenu
