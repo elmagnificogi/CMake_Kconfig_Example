@@ -1,0 +1,20 @@
+mainmenu "CMake-Kconfig Project Configuration"
+
+config PROJECT_NAME
+    string
+    prompt "Project Name"
+    default "Demo-project"
+    help
+      "The name of the project. This will be used to name the output files."
+
+config PROJECT_VERSION
+    string
+    prompt "Project Version"
+    default "0.9.4"
+    help
+      "The version of the project."
+
+source "platform/Kconfig"
+source "driver/Kconfig"
+source "rtos/Kconfig"
+source "module/Kconfig"
