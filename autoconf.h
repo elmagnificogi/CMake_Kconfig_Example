@@ -1,4 +1,14 @@
 #define CONFIG_PROJECT_NAME "Demo-project"
 #define CONFIG_PROJECT_VERSION "0.9.4"
 #define CONFIG_APM32F405 1
+#define CONFIG_LED 1
 #define CONFIG_FreeRTOS 1
+#define CONFIG_FLASH 1
+#define CONFIG_NewModule2 1
+#define CONFIG_Feature11 1
+#define CONFIG_SubModule2 1
+#define CONFIG_Sub2_Feature1 1
+#define CONFIG_NewModule 1
+#define CONFIG_Feature1 1
+#define CONFIG_SUBMODULE 1
+#define CONFIG_Sub_Feature1 1

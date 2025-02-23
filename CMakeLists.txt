@@ -58,10 +58,10 @@ endif ()
 # Add sources and includes
 file(READ "autoconf.h" config_content)
 #message(STATUS "Found config macro: ${config_content}")
-string(REGEX MATCHALL "CONFIG_[A-Z0-9_]+" config_macros ${config_content})
+string(REGEX MATCHALL "CONFIG_[A-z0-9_]+" config_macros ${config_content})
 
 foreach(macro ${config_macros})
-    #message(STATUS "Found config macro: ${macro}")
+    message(STATUS "Found config macro: ${macro}")
     set(${macro} ${macro})
     #target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE ${macro})
 endforeach()

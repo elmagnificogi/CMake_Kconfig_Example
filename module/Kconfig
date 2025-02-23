@@ -1,8 +1,8 @@
 menu "Module Configuration"
-  config Motors
-      bool "Motors"
+  config MOTORS
+      bool "MOTORS"
 
-  config Flash
-      bool "Flash"
+  config FLASH
+      bool "FLASH"
 rsource "*/Kconfig"
 endmenu

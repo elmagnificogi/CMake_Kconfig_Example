@@ -4,18 +4,18 @@ menu "Sub Module2 Configuration"
         def_bool y
         option modules
 
-    config SubModule3
-        tristate "SubModule3"
+    config SubModule2
+        tristate "SubModule2"
 
     choice
-        prompt "Feature222 selection"
+        prompt "Feature selection"
 
         config Sub2_Feature1
-            tristate "Sub_2Feature 122"
+            tristate "Sub2_Feature1"
             help
                 "This is the first feature"
         config Sub2_Feature2
-            tristate "Sub_2Feature 222"
+            tristate "Sub2_Feature1"
             help
                 "This is the second feature"
     endchoice
