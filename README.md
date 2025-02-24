@@ -1,5 +1,9 @@
 # CMake Kconfig Example
 
+> https://elmagnifico.tech/2025/02/22/Kconfig-CMake/
+
+
+
 ## Directory Structure
 
 - `.config`: Generated configuration file.
