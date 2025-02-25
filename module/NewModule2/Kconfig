@@ -1,23 +1,20 @@
 menu "New Module2 Configuration"
-    config MODULES
-        prompt "Enable Modules"
-        def_bool y
-        option modules
-
     config NewModule2
-        tristate "NewModule2"
+        bool "NewModule2"
 
-    choice
-        prompt "Feature selection"
+    if NewModule2
+        choice
+            prompt "Feature selection"
 
-        config Feature11
-            tristate "Feature 11"
-            help
-                "This is the first feature"
-        config Feature22
-            tristate "Feature 22"
-            help
-                "This is the second feature"
-    endchoice
+            config Feature11
+                bool "Feature 11"
+                help
+                    "This is the first feature"
+            config Feature22
+                bool "Feature 22"
+                help
+                    "This is the second feature"
+        endchoice
+    endif
     rsource "*/Kconfig"
 endmenu

@@ -4,18 +4,13 @@ menu "Sub Module Configuration"
         default n
         help
             Enable Sub Module
-            
-    config MODULES
-        prompt "Enable Modules"
-        def_bool y
-        option modules
 
     choice
-        prompt "Sub Feature selection"
+        prompt "Sub Feature selection" if SUBMODULE
 
         config Sub_Feature1
-            tristate "Sub_Feature1"
+            bool "Sub_Feature1"
         config Sub_Feature2
-            tristate "Sub_Feature2"
+            bool "Sub_Feature2"
     endchoice
 endmenu

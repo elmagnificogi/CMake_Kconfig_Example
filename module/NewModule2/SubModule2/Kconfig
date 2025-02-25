@@ -1,21 +1,16 @@
 menu "Sub Module2 Configuration"
-    config MODULES
-        prompt "Enable Modules"
-        def_bool y
-        option modules
-
     config SubModule2
-        tristate "SubModule2"
+        bool "SubModule2"
 
     choice
         prompt "Feature selection"
 
-        config Sub2_Feature1
-            tristate "Sub2_Feature1"
+        config Sub2_Feature1 
+            bool "Sub2_Feature1" if SubModule2
             help
                 "This is the first feature"
         config Sub2_Feature2
-            tristate "Sub2_Feature1"
+            bool "Sub2_Feature1" if SubModule2
             help
                 "This is the second feature"
     endchoice

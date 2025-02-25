@@ -1,21 +1,16 @@
 menu "New Module Configuration"
-    config MODULES
-        prompt "Enable Modules"
-        def_bool y
-        option modules
-
     config NewModule
         tristate "NewModule"
 
     choice
-        prompt "Feature selection"
+        prompt "Feature selection" if NewModule
 
         config Feature1
-            tristate "Feature 1"
+            bool "Feature 1"
             help
                 "This is the first feature"
         config Feature2
-            tristate "Feature 2"
+            bool "Feature 2"
             help
                 "This is the second feature"
     endchoice
