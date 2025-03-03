@@ -32,9 +32,7 @@ CONFIG_FreeRTOS=y
 #
 # Sub Module2 Configuration
 #
-CONFIG_SubModule2=y
-CONFIG_Sub2_Feature1=y
-# CONFIG_Sub2_Feature2 is not set
+# CONFIG_SubModule2 is not set
 # end of Sub Module2 Configuration
 # end of New Module2 Configuration
 
@@ -47,8 +45,8 @@ CONFIG_Sub2_Feature1=y
 # Sub Module Configuration
 #
 CONFIG_SUBMODULE=y
-CONFIG_Sub_Feature1=y
-# CONFIG_Sub_Feature2 is not set
+# CONFIG_Sub_Feature1 is not set
+CONFIG_Sub_Feature2=y
 # end of Sub Module Configuration
 # end of New Module Configuration
 # end of Module Configuration

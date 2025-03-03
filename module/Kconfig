@@ -1,8 +1,27 @@
 menu "Module Configuration"
   config MOTORS
       bool "MOTORS"
+      #跨文件选择
+      select NewModule2
+
+  config MOTORS2
+      bool "MOTORS2"
+      #同文件选择
+      select FLASH
 
   config FLASH
       bool "FLASH"
+
+  config FLASH_Feature1
+      bool "Flash Feature1"
+      help
+            "详细描述Flash Feature1"
+        depends on FLASH
+  config FLASH_Feature2
+      bool "Flash Feature2"
+      help
+            "详细描述Flash Feature2"
+        depends on FLASH
+
 rsource "*/Kconfig"
 endmenu
